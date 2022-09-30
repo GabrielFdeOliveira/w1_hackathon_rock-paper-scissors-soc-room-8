@@ -8,7 +8,15 @@ console.log("Connected")
 // translate the result into an usable string to finally compare with playerMove
 //show a result on alert
 
+
+// V: I have added counters here which we can make increase later in the 'if' statements
 let response = confirm("Do you wanna play a game with me??")
+let winCount = 0
+let lossCount = 0
+let gamesCount = 0
+let tieCount = 0
+// V: On lines 15 and 69 I have turned this into a do/while loop
+
 do{
 
 // The values from math.random will be respectively paper = 0, scissors = 1 and rock = 2. 
@@ -32,25 +40,25 @@ if(computerMove === 2){
 console.log(computerMove)
 
 function getWinner(playerMove = prompt("What's your move?")){
-    if(playerMove === computerMove){
+    if(playerMove === computerMove){tieCount++
         return 0;
     }
-        if (playerMove === "rock" && computerMove === "paper" ){ 
+        if (playerMove === "rock" && computerMove === "paper" ){ lossCount++;
             return -1;
         }      
-            if (playerMove === "rock" && computerMove === "scissors"){
+            if (playerMove === "rock" && computerMove === "scissors"){winCount++;
                 return 1;
             }                
-                if (playerMove === "scissors" && computerMove === "rock"){
+                if (playerMove === "scissors" && computerMove === "rock"){lossCount++;
                     return -1;
                 }                
-                    if (playerMove === "scissors" && computerMove === "paper"){
+                    if (playerMove === "scissors" && computerMove === "paper"){winCount++;
                         return 1;
                     }                        
-                        if (playerMove === "paper" && computerMove === "rock"){
+                        if (playerMove === "paper" && computerMove === "rock"){winCount++;
                             return 1;
                         }
-                            if (playerMove === "paper" && computerMove === "scissors"){
+                            if (playerMove === "paper" && computerMove === "scissors"){lossCount++;
                                 return -1;
                             } else {
                                 console.log("Choose between rock, scissors or paper")
@@ -58,8 +66,8 @@ function getWinner(playerMove = prompt("What's your move?")){
                                                   
 }                    
 let result = getWinner()
- 
-alert(result)
+gamesCount++
+alert("You scored " + result + ", You have: win count = " + winCount + ", loss count = " + lossCount + ", tie count = " + tieCount)
 
 response = confirm("Do you wanna keep playing with me???? I'm having a WONDERFUL time...")
 
