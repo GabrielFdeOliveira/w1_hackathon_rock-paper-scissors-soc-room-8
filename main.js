@@ -7,27 +7,30 @@ console.log("Connected")
 // Create if statemets to determine the winner
 // Create a function using the logice we just created
 // The varieables that we just hard coded will now be taken as parameters of the function.
+// Use the function Math.random to replace our hard coded computerMove then 
+// translate the result into an usable string to finally compare with playerMove
+//show a result on alert
 
-
-let computerMove = "rock"
+// The values from math.random will be respectively paper = 0, scissors = 1 and rock = 2
+let computerMove = Math.floor(Math.random()*3)
 
 function getWinner(playerMove = prompt("What's your move?")){
     if(playerMove === computerMove){
         return 0;
     }
-        if (playerMove === "rock" && computerMove === "paper" ){ 
+        if (playerMove === "rock" && computerMove === 0 ){ 
             return -1;
         }      
-            if (playerMove === "rock" && computerMove === "scissors"){
+            if (playerMove === "rock" && computerMove === 1){
                 return 1;
             }                
-                if (playerMove === "scissors" && computerMove === "rock"){
+                if (playerMove === "scissors" && computerMove === 2){
                     return -1;
                 }                
-                    if (playerMove === "scissors" && computerMove === "paper"){
+                    if (playerMove === "scissors" && computerMove === 0){
                         return 1;
                     }                        
-                        if (playerMove === "paper" && computerMove === "rock"){
+                        if (playerMove === "paper" && computerMove === 2){
                             return 1;
                         }
                             if (playerMove === "paper" && computerMove === "scissors"){
@@ -40,6 +43,7 @@ function getWinner(playerMove = prompt("What's your move?")){
 let result = getWinner()
  
 alert(result)
+console.log(computerMove)
 
 
 //Task 3: User Input - instead of hard-coding player move, get the player move from their input, which we get by prompting them
