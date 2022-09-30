@@ -2,8 +2,7 @@ console.log("Connected")
 // Task 1 (Logic) plan
 
 // Create two variables to store the moves (player move, computer move)
-let playerMove = "rock"
-let computerMove = "rock"
+
 
 // Create if statemets to determine the winner
 // Create a function using the logice we just created
