@@ -11,8 +11,15 @@ console.log("Connected")
 // translate the result into an usable string to finally compare with playerMove
 //show a result on alert
 
-// The values from math.random will be respectively paper = 0, scissors = 1 and rock = 2
+
+confirm("Do you wanna play a game with me??")
+while(confirm){
+
+// The values from math.random will be respectively paper = 0, scissors = 1 and rock = 2. 
+//LEAVE COMMENT WITH LINE
 let computerMove = Math.floor(Math.random()*3)
+
+console.log(computerMove)
 
 function getWinner(playerMove = prompt("What's your move?")){
     if(playerMove === computerMove){
@@ -43,8 +50,11 @@ function getWinner(playerMove = prompt("What's your move?")){
 let result = getWinner()
  
 alert(result)
-console.log(computerMove)
 
+confirm("Do you wanna keep playing with me???? I'm having a WONDERFUL time...")
+
+
+}
 
 //Task 3: User Input - instead of hard-coding player move, get the player move from their input, which we get by prompting them
 // Display result of function as an alert. 
