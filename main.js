@@ -17,6 +17,17 @@ do{
 
 let computerMove = Math.floor(Math.random()*3)
 
+//V: I am adding the code below so that the computer move gets translated from a number to a string. This is because I think we are getting 'undefined' returned because we are using numbers, not string, to compare them. 
+
+if(computerMove === 0){
+    computerMove = "paper"
+}
+if(computerMove === 1){
+    computerMove = "scissors"
+}
+if(computerMove === 2){
+    computerMove = "rock"
+}
 
 console.log(computerMove)
 
@@ -24,19 +35,19 @@ function getWinner(playerMove = prompt("What's your move?")){
     if(playerMove === computerMove){
         return 0;
     }
-        if (playerMove === "rock" && computerMove === 0 ){ 
+        if (playerMove === "rock" && computerMove === "paper" ){ 
             return -1;
         }      
-            if (playerMove === "rock" && computerMove === 1){
+            if (playerMove === "rock" && computerMove === "scissors"){
                 return 1;
             }                
-                if (playerMove === "scissors" && computerMove === 2){
+                if (playerMove === "scissors" && computerMove === "rock"){
                     return -1;
                 }                
-                    if (playerMove === "scissors" && computerMove === 0){
+                    if (playerMove === "scissors" && computerMove === "paper"){
                         return 1;
                     }                        
-                        if (playerMove === "paper" && computerMove === 2){
+                        if (playerMove === "paper" && computerMove === "rock"){
                             return 1;
                         }
                             if (playerMove === "paper" && computerMove === "scissors"){
