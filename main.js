@@ -9,7 +9,8 @@ console.log("Connected")
 //show a result on alert
 
 
-// V: I have added counters here which we can make increase later in the 'if' statements
+// V: I have added counters here which we can make increase later in the 'if' statements. I have added ++ counters to the if statements, and a general games counter to the while loop. 
+// V: I have also added all the count totals to the alert message at the end of the while loop
 let response = confirm("Do you wanna play a game with me??")
 let winCount = 0
 let lossCount = 0
@@ -67,7 +68,9 @@ function getWinner(playerMove = prompt("What's your move?")){
 }                    
 let result = getWinner()
 gamesCount++
-alert("You scored " + result + ", You have: win count = " + winCount + ", loss count = " + lossCount + ", tie count = " + tieCount)
+
+
+alert("You scored " + result + ". After playing " + gamesCount + " games with me, all of which I have LOVED, you have: win count = " + winCount + ", loss count = " + lossCount + ", tie count = " + tieCount)
 
 response = confirm("Do you wanna keep playing with me???? I'm having a WONDERFUL time...")
 
