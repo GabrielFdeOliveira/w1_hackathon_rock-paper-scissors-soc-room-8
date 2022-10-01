@@ -9,14 +9,20 @@ console.log("Connected")
 //show a result on alert
 
 
-// V: I have added counters here which we can make increase later in the 'if' statements. I have added ++ counters to the if statements, and a general games counter to the while loop. 
-// V: I have also added all the count totals to the alert message at the end of the while loop
-let response = confirm("Do you wanna play a game with me??")
+/* V: I have added counters here which we can make increase later in the 'if' statements. I have added ++ 
+    counters to the if statements, and a general games counter to the while loop.
+    I have also added all the count totals to the alert message at the end of the while loop */
+
 let winCount = 0
 let lossCount = 0
 let gamesCount = 0
 let tieCount = 0
+
 // V: On lines 15 and 69 I have turned this into a do/while loop
+
+//G: Here I stored the player name using the prompt funtion
+let playerName = prompt("Hello! What's your name?") 
+                console.log(playerName)
 
 do{
 
@@ -31,48 +37,65 @@ let computerMove = Math.floor(Math.random()*3)
 if(computerMove === 0){
     computerMove = "paper"
 }
-if(computerMove === 1){
-    computerMove = "scissors"
-}
-if(computerMove === 2){
-    computerMove = "rock"
-}
+    if(computerMove === 1){
+        computerMove = "scissors"
+        //G: here I replaced another comparison with if by an else, to make the code cleaner, also indented it.
+    // if(computerMove === 2){ 
+        }else {
+            computerMove = "rock"
+        }
 
 console.log(computerMove)
 
-function getWinner(playerMove = prompt("What's your move?")){
+function getWinner(playerMove = prompt("What's your move " + playerName + "?")){
     if(playerMove === computerMove){tieCount++
         return 0;
     }
-        if (playerMove === "rock" && computerMove === "paper" ){ lossCount++;
-            return -1;
+        if (playerMove === "rock" && computerMove === "paper" ){
+            lossCount++;
+            return -1;            
         }      
-            if (playerMove === "rock" && computerMove === "scissors"){winCount++;
+            if (playerMove === "rock" && computerMove === "scissors"){
+                winCount++;
                 return 1;
             }                
-                if (playerMove === "scissors" && computerMove === "rock"){lossCount++;
+                if (playerMove === "scissors" && computerMove === "rock"){
+                    lossCount++;
                     return -1;
                 }                
-                    if (playerMove === "scissors" && computerMove === "paper"){winCount++;
+                    if (playerMove === "scissors" && computerMove === "paper"){
+                        winCount++;
                         return 1;
                     }                        
-                        if (playerMove === "paper" && computerMove === "rock"){winCount++;
+                        if (playerMove === "paper" && computerMove === "rock"){
+                            winCount++;
                             return 1;
                         }
-                            if (playerMove === "paper" && computerMove === "scissors"){lossCount++;
-                                return -1;
+                            if (playerMove === "paper" && computerMove === "scissors"){
+                                lossCount++;
+                                return -1;                        
                             } else {
-                                console.log("Choose between rock, scissors or paper")
+                                console.log("Please choose between rock, scissors or paper " + playerName + ".")
                             } 
                                                   
 }                    
 let result = getWinner()
+
+//G: Here I translated the getWinner result into a string so it can be understood in the alert instead of showing -1, 0 and 1.
+if(result === 1){
+    result = "You won! "
+    }if (result === -1){
+        result = "You've lost! "
+        }if (result === 0){
+            result = "It's a draw! "
+        }
+
 gamesCount++
 
 
-alert("You scored " + result + ". After playing " + gamesCount + " games with me, all of which I have LOVED, you have: win count = " + winCount + ", loss count = " + lossCount + ", tie count = " + tieCount)
+alert(result + " After playing " + gamesCount + " games with me, all of which I have LOVED, you have won = " + winCount + ", lost = " + lossCount + ", and tied = " + tieCount + " games!")
 
-response = confirm("Do you wanna keep playing with me???? I'm having a WONDERFUL time...")
+response = confirm("Do you wanna keep playing with me " + playerName + "???? I'm having a WONDERFUL time...")
 
 } while(response)
 
